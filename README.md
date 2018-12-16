@@ -65,7 +65,7 @@ Click Listener
 
 ###### Change Item Image
 <pre>
-         mDbHelper.changeLink("Bbc","newImage");
+         mDbHelper.changeImage("Bbc","newImage");
 </pre>
 
 
