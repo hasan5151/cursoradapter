@@ -66,13 +66,13 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 	
 	@Override
 	public void onCreate(SQLiteDatabase mDb) {
-	/*	try {
+		try {
 			mDb.beginTransaction();
  			mDb.execSQL(DATABASE_CREATE_ITEMS);
 
 			ContentValues cv_items = new ContentValues();
 
-			int i=0;
+		/*	int i=0;
 
 			cv_items.put(ITEM_NAME, "BBC");
 			cv_items.put(ITEM_LINK,"http://www.bbc.co.uk");
@@ -90,12 +90,12 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 			cv_items.put(ITEM_LINK, "https://www.washingtonpost.com/");
 			cv_items.put(ITEM_POSITION, i);
  			cv_items.put(ITEM_IMAGE_NAME, "wp");
-			mDb.insert(ITEM_TABLE, ITEM_NAME, cv_items);
+			mDb.insert(ITEM_TABLE, ITEM_NAME, cv_items);*/
 			mDb.setTransactionSuccessful();
 
 		} finally {
 			mDb.endTransaction();
-		}*/
+		}
 	}
 
 	@Override
