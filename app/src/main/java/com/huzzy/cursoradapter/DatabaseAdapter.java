@@ -145,7 +145,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 		int item_Position;
 		try{
 			item_Position = getMaxColumnData();
-		}catch (SQLiteException e){
+		}catch (RuntimeException e){
 			item_Position=0;
 		}
 		ContentValues initialItemValues = new ContentValues();
