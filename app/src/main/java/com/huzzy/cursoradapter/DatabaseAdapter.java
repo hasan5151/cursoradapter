@@ -183,7 +183,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 				.compileStatement("SELECT MAX(item_position) FROM item_table");
 		try {
 			return (int) stmt.simpleQueryForLong();
-		}catch (SQLiteException e){
+		}catch (RuntimeException e){
 			return 0;
 		}
 	}
