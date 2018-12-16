@@ -17,7 +17,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 	private SQLiteDatabase mDb;
 
 	private static final String DATABASE_NAME = "news";
-	private static final int SCHEMA_VERSION = 1;
+	private static final int SCHEMA_VERSION = 2;
 	public static final String ITEM_KEY_ROWID = "_id";
 	public static final String ITEM_TABLE = "item_table";
 	public static final String ITEM_NAME = "item_name";
@@ -65,7 +65,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 	
 	@Override
 	public void onCreate(SQLiteDatabase mDb) {
-		try {
+	/*	try {
 			mDb.beginTransaction();
  			mDb.execSQL(DATABASE_CREATE_ITEMS);
 
@@ -94,7 +94,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 
 		} finally {
 			mDb.endTransaction();
-		}
+		}*/
 	}
 
 	@Override
@@ -142,7 +142,6 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 	@Override
 	public long insertItemRecord(String item_name, String item_details,String item_image, Context context) {
 		int item_Position = getMaxColumnData();
-		//TODO Dene bunu
 		ContentValues initialItemValues = new ContentValues();
 		int hoppalaValue = context.getResources().getIdentifier(item_name, "drawable", context.getPackageName());
  		try {
