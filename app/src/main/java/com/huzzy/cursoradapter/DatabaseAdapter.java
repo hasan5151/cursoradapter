@@ -142,7 +142,12 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 
 	@Override
 	public long insertItemRecord(String item_name, String item_details,String item_image, Context context) {
-		int item_Position = getMaxColumnData();
+		int item_Position;
+		try{
+			item_Position = getMaxColumnData();
+		}catch (SQLiteException e){
+			item_Position=0;
+		}
 		ContentValues initialItemValues = new ContentValues();
 		int hoppalaValue = context.getResources().getIdentifier(item_name, "drawable", context.getPackageName());
  		try {
@@ -178,13 +183,10 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 	}
 
 	@Override
-	public int getMaxColumnData() {
+	public int getMaxColumnData() throws SQLiteException {
 		final SQLiteStatement stmt = mDb
 				.compileStatement("SELECT MAX(item_position) FROM item_table");
-		try {
-			return (int) stmt.simpleQueryForLong();
-		}catch (RuntimeException e){
-			return 0;
-		}
+		return (int) stmt.simpleQueryForLong();
+
 	}
 }
