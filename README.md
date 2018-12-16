@@ -18,6 +18,8 @@ add ListView to your layout
 
 Activity
 <pre>
+  listView = findViewById(R.id.listView);
+
   DatabaseAdapter mDbHelper = DatabaseAdapter.getInstance(MainActivity.this);
   mDbHelper.openConnection();
   
