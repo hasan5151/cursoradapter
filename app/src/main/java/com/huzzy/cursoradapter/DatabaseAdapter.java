@@ -18,7 +18,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 	private SQLiteDatabase mDb;
 
 	private static final String DATABASE_NAME = "news";
-	private static final int SCHEMA_VERSION = 2;
+	private static final int SCHEMA_VERSION = 7;
 	public static final String ITEM_KEY_ROWID = "_id";
 	public static final String ITEM_TABLE = "item_table";
 	public static final String ITEM_NAME = "item_name";
@@ -29,7 +29,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 	private final String sort_order = "ASC"; // ASC or DESC
 
 	// String to create the initial news database table
-	private static final String DATABASE_CREATE_ITEMS = 
+	private static final String DATABASE_CREATE_ITEMS =
 			"CREATE TABLE item_table (_id INTEGER PRIMARY KEY AUTOINCREMENT, item_name TEXT, item_link TEXT, item_image_name TEXT, item_position INTEGER);";
 
 	// Methods to setup database singleton and connections
@@ -63,16 +63,16 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 	}
 
 	// initial database load with dummy records
-	
+
 	@Override
 	public void onCreate(SQLiteDatabase mDb) {
 		try {
 			mDb.beginTransaction();
- 			mDb.execSQL(DATABASE_CREATE_ITEMS);
-
+			mDb.execSQL(DATABASE_CREATE_ITEMS);
+/*
 			ContentValues cv_items = new ContentValues();
 
-		/*	int i=0;
+		int i=0;
 
 			cv_items.put(ITEM_NAME, "BBC");
 			cv_items.put(ITEM_LINK,"http://www.bbc.co.uk");
@@ -144,13 +144,13 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 	public long insertItemRecord(String item_name, String item_details,String item_image, Context context) {
 		int item_Position;
 		try{
-			item_Position = getMaxColumnData();
+			item_Position = getMaxColumnData()+1;
 		}catch (RuntimeException e){
 			item_Position=0;
 		}
 		ContentValues initialItemValues = new ContentValues();
-		int hoppalaValue = context.getResources().getIdentifier(item_name, "drawable", context.getPackageName());
- 		try {
+		int hoppalaValue = context.getResources().getIdentifier(item_image, "drawable", context.getPackageName());
+		try {
 			item_image = context.getResources().getResourceName(hoppalaValue);
 		}catch (Resources.NotFoundException e){
 			item_image="newsdef";
@@ -159,7 +159,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 		initialItemValues.put(ITEM_NAME, item_name);
 		initialItemValues.put(ITEM_LINK, item_details);
 		initialItemValues.put(ITEM_IMAGE_NAME, item_image);
-		initialItemValues.put(ITEM_POSITION, item_Position+1);
+		initialItemValues.put(ITEM_POSITION, item_Position);
 		return mDb.insert(ITEM_TABLE, null, initialItemValues);
 	}
 
@@ -172,7 +172,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 	public boolean deleteItemRecord(String itemName) {
 		String[] whereArgs = new String[] {String.valueOf(itemName)};
 		return mDb.delete(ITEM_TABLE, ITEM_NAME +"=?", whereArgs) > 0;
- 	}
+	}
 
 	@Override
 	public boolean updateItemPosition(long rowId, Integer position) {
@@ -189,4 +189,5 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 		return (int) stmt.simpleQueryForLong();
 
 	}
+
 }
