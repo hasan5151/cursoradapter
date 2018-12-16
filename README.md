@@ -4,7 +4,7 @@
 ![alt text](https://firebasestorage.googleapis.com/v0/b/uploadpic-a16bc.appspot.com/o/images%2Fss.png?alt=media&token=dccde96a-1776-4ab8-9c65-b482a0f82da8 "Screen Shot")
 
 ## Usage
-add your layout ListView
+add ListView to your layout
  
        <ListView 
           android:id="@+id/listView"
