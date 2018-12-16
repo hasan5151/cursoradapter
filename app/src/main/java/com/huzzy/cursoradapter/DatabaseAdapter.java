@@ -32,7 +32,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
 			"CREATE TABLE item_table (_id INTEGER PRIMARY KEY AUTOINCREMENT, item_name TEXT, item_link TEXT, item_image_name TEXT, item_position INTEGER);";
 
 	// Methods to setup database singleton and connections
-	synchronized static DatabaseAdapter getInstance(Context ctxt) {
+	public synchronized static DatabaseAdapter getInstance(Context ctxt) {
 		if (sSingleton == null) {
 			sSingleton = new DatabaseAdapter(ctxt);
 		}
