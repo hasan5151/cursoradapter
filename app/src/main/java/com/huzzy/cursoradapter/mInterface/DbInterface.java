@@ -6,7 +6,7 @@ import android.database.SQLException;
 
 import com.huzzy.cursoradapter.DatabaseAdapter;
 
-public interface dbInterface{
+public interface DbInterface {
     DatabaseAdapter openConnection() throws SQLException;
     Cursor getAllItemRecords();
     void changeLink(String name,String newLink);

@@ -10,9 +10,9 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 
-import com.huzzy.cursoradapter.mInterface.dbInterface;
+import com.huzzy.cursoradapter.mInterface.DbInterface;
 
-public class DatabaseAdapter extends SQLiteOpenHelper implements dbInterface {
+public class DatabaseAdapter extends SQLiteOpenHelper implements DbInterface {
 
 	private static DatabaseAdapter sSingleton;
 	private SQLiteDatabase mDb;

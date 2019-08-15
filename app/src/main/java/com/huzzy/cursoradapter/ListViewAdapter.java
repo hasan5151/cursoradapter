@@ -8,21 +8,21 @@ import android.widget.ImageView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 
-import com.huzzy.cursoradapter.mInterface.clickListener;
+import com.huzzy.cursoradapter.mInterface.ClickListener;
 
 /**
  * Created by huzey on 28.08.2016.
  */
-public class listViewAdapter extends ResourceCursorAdapter {
-    clickListener mClickListener;
-    Context context;
-    public listViewAdapter(Context context, Cursor cursor, int flags, clickListener mClickListener) {
+public class ListViewAdapter extends ResourceCursorAdapter {
+    private ClickListener mClickListener;
+    private Context context;
+    public ListViewAdapter(Context context, Cursor cursor, int flags, ClickListener mClickListener) {
         super(context,  R.layout.list_items, cursor, flags);
         this.mClickListener=mClickListener;
         this.context=context;
     }
 
-    public listViewAdapter(Context context, int layout, Cursor cursor, int flags, clickListener mClickListener) {
+    public ListViewAdapter(Context context, int layout, Cursor cursor, int flags, ClickListener mClickListener) {
         super(context, layout, cursor, flags);
         this.mClickListener=mClickListener;
     }
