@@ -35,20 +35,16 @@ Activity
   // Add your db operations here. For sample look at below
  //  mDbHelper.insertItemRecord("Bbc","http://www.bbc.co.uk","bbc",this);
  
- listViewAdapter mCursorAdapter = new listViewAdapter(this, mDbHelper.getAllItemRecords(), 0,this); // last parameter for click listener
+ ListViewAdapter mCursorAdapter = new ListViewAdapter(this, mDbHelper.getAllItemRecords(), 0,this); // last parameter for click listener
  listView.setAdapter(mCursorAdapter);
 </pre>
 
 Click Listener
 <pre>
   @Override
-    public void onClick(View view, final String sitelink) {
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context,sitelink,Toast.LENGTH_LONG).show();
-            }
-        });
+    public void onClick(View view, String sitelink) {
+        view.setOnClickListener(view1 -> 
+                Toast.makeText(context,sitelink,Toast.LENGTH_LONG).show());
     }
 </pre>
 
