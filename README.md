@@ -8,7 +8,7 @@
      maven { url 'https://jitpack.io' }
   }
   dependencies {
-     implementation 'com.github.hasan5151:cursoradapter:2.1'
+     implementation 'com.github.hasan5151:cursoradapter:2.2'
   }
  </pre>
 
