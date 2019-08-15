@@ -16,14 +16,14 @@ import com.huzzy.cursoradapter.mInterface.ClickListener;
 public class ListViewAdapter extends ResourceCursorAdapter {
     private ClickListener mClickListener;
     private Context context;
-    public ListViewAdapter(Context context, Cursor cursor, int flags, ClickListener mClickListener) {
-        super(context,  R.layout.list_items, cursor, flags);
+    public ListViewAdapter(Context context, Cursor cursor, ClickListener mClickListener) {
+        super(context,  R.layout.list_items, cursor, 0);
         this.mClickListener=mClickListener;
         this.context=context;
     }
 
-    public ListViewAdapter(Context context, int layout, Cursor cursor, int flags, ClickListener mClickListener) {
-        super(context, layout, cursor, flags);
+    public ListViewAdapter(Context context, int layout, Cursor cursor, ClickListener mClickListener) {
+        super(context, layout, cursor, 0);
         this.mClickListener=mClickListener;
     }
 
