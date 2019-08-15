@@ -35,7 +35,7 @@ Activity
   // Add your db operations here. For sample look at below
  //  mDbHelper.insertItemRecord("Bbc","http://www.bbc.co.uk","bbc",this);
  
- ListViewAdapter mCursorAdapter = new ListViewAdapter(this, mDbHelper.getAllItemRecords(), 0,this); // last parameter for click listener
+ ListViewAdapter mCursorAdapter = new ListViewAdapter(this, mDbHelper.getAllItemRecords(), this); // last parameter for click listener
  listView.setAdapter(mCursorAdapter);
 </pre>
 
