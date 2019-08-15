@@ -29,7 +29,7 @@ Activity
 <pre>
   listView = findViewById(R.id.listView);
 
-  DatabaseAdapter mDbHelper = DatabaseAdapter.getInstance(MainActivity.this);
+  mDbHelper = DatabaseAdapter.getInstance(MainActivity.this);
   mDbHelper.openConnection();
   
   // Add your db operations here. For sample look at below
