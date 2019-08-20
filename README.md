@@ -74,7 +74,7 @@ Click Listener
 </pre>
 
 
-###### Delete Item Record
+###### Delete Item Record //from Drawable folder
 <pre>
          mDbHelper.deleteItemRecord("Bbc");
 </pre>
